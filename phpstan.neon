@@ -1,0 +1,10 @@
+parameters:
+    ignoreErrors:
+#         - '#error message#'
+    polluteScopeWithLoopInitialAssignments: true
+    parallel:
+        # to disable parallel uncomment next line
+        #maximumNumberOfProcesses: 1
+         jobSize: 80
+         maximumNumberOfProcesses: 12
+         minimumNumberOfJobsPerProcess: 12
