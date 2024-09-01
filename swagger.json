@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.3",
   "info": {
     "title": "Waglpz REST API Documentation",
     "description": "",
@@ -15,17 +15,74 @@
       }
     },
     "responses": {
-      "Internal Server Error": {
+      "BadRequest": {
+        "description": "When client sends invalid data."
+      },
+      "InternalServerError": {
         "description": "When an unknown server error occurs."
       },
       "Unauthorized": {
         "description": "JWT token is missing or invalid."
       },
       "Forbidden": {
-        "description": "User is authenticated but he is not allowed to perform the operation."
+        "description": "User is authenticated but not allowed to perform the operation."
       },
-      "Not Found": {
-        "description": "When resource cannot be found at the moment."
+      "NotFound": {
+        "description": "When the resource cannot be found at the moment."
+      },
+      "Conflict": {
+        "description": "The response status code indicates a request conflict with the current state of the target resource."
+      }
+    },
+    "schemas": {
+      "listMeta": {
+        "type": "object",
+        "properties": {
+          "itemsPerPage": {
+            "type": "integer"
+          },
+          "totalPages": {
+            "type": "integer"
+          },
+          "totalItems": {
+            "type": "integer"
+          },
+          "_links": {
+            "type": "object",
+            "properties": {
+              "first": {
+                "type": "string",
+                "example": "?page=1&limit=10"
+              },
+              "previous": {
+                "type": "string",
+                "example": "?page=11&limit=10"
+              },
+              "self": {
+                "type": "string",
+                "example": "?page=12&limit=10"
+              },
+              "next": {
+                "type": "string",
+                "example": "?page=13&limit=10"
+              },
+              "last": {
+                "type": "string",
+                "example": "?page=15&limit=10"
+              }
+            }
+          }
+        }
+      },
+      "id": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$",
+            "example": "00000000-abcd-00aa-0110-000000000001"
+          }
+        }
       }
     }
   },

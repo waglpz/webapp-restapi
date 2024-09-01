@@ -1,10 +1,11 @@
 parameters:
     ignoreErrors:
-#         - '#error message#'
+        - '#Variable property access#'
     polluteScopeWithLoopInitialAssignments: true
+    inferPrivatePropertyTypeFromConstructor: true
     parallel:
         # to disable parallel uncomment next line
         #maximumNumberOfProcesses: 1
-         jobSize: 80
-         maximumNumberOfProcesses: 12
-         minimumNumberOfJobsPerProcess: 12
+        jobSize: 80
+        maximumNumberOfProcesses: 12
+        minimumNumberOfJobsPerProcess: 12

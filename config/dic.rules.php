@@ -9,6 +9,7 @@ use FastRoute\Dispatcher;
 use Interop\Http\EmitterInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\PhpRenderer;
+use Waglpz\Webapp\RestApi\App;
 use Waglpz\Webapp\RestApi\UI\Http\Web\SwaggerUI;
 
 use function FastRoute\simpleDispatcher;
@@ -28,6 +29,10 @@ return [
             PhpRenderer::class      => '$DefaultViewRenderer',
             EmitterInterface::class => Emitter::class,
         ],
+    ],
+    '$DefaultWebApp'                 => [
+        'shared' => true,
+        'instanceOf' =>  App::class,
     ],
     ServerRequestInterface::class => [
         'shared'     => true,

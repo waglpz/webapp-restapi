@@ -9,7 +9,6 @@ use Aidphp\Http\Stream;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use Waglpz\Webapp\Tests\UI\WebTestCase;
 
 abstract class RestTestCase extends WebTestCase
@@ -42,7 +41,6 @@ abstract class RestTestCase extends WebTestCase
             $stream = new Stream(\fopen('php://temp', 'wb+'));
             $stream->write($body);
             $request = $request->withBody($stream);
-            \assert($request instanceof ServerRequestInterface);
             $request->getBody()->rewind();
         }
 

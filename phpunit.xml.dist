@@ -24,6 +24,7 @@
   <php>
     <const name="APP_ENV" value="test"/>
     <const name="PROJECT_CONFIG_DIRECTORY" value="config"/>
+    <server name="LOG_DIR" value="/var/log"/>
   </php>
   <logging>
     <junit outputFile="var/.build-output/junit.xml"/>
